@@ -12,7 +12,7 @@ namespace RealEstateApi.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-          optionsBuilder.UseSqlServer(@"Server=tcp:rasimrealestateserver.database.windows.net,1433;Initial Catalog=RealEstateRasimDb;Persist Security Info=False;User ID=rasim;Password=Al@gezov1984;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+          optionsBuilder.UseSqlServer(@"Data Source=SQL8005.site4now.net;Initial Catalog=db_a9481f_realestatedb;User Id=db_a9481f_realestatedb_admin;Password=Al@gezov1984");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
