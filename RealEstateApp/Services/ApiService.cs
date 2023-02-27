@@ -50,7 +50,7 @@ namespace RealEstateApp.Services
 		public static async Task<List<Category>> GetCategories()
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.GetStringAsync(ApiSettings.ApiUrl + "api/categories");
 			return JsonConvert.DeserializeObject<List<Category>>(response);
 		}
@@ -58,7 +58,7 @@ namespace RealEstateApp.Services
 		public static async Task<List<TrendingProperty>> GetTrendingProperties()
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.GetStringAsync(ApiSettings.ApiUrl + "api/Properties/TrendingProperties");
 			return JsonConvert.DeserializeObject<List<TrendingProperty>>(response);
 		}
@@ -66,7 +66,7 @@ namespace RealEstateApp.Services
 		public static async Task<List<SearchProperty>> FindProperties(string address)
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.GetStringAsync(ApiSettings.ApiUrl + "api/Properties/SearchProperties?address=" + address);
 			return JsonConvert.DeserializeObject<List<SearchProperty>>(response);
 		}
@@ -74,7 +74,7 @@ namespace RealEstateApp.Services
 		public static async Task<List<PropertyByCategory>> GetPropertyByCategory(int categoryId)
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.GetStringAsync(ApiSettings.ApiUrl + "api/Properties/PropertyList?categoryId=" + categoryId);
 			return JsonConvert.DeserializeObject<List<PropertyByCategory>>(response);
 		}
@@ -82,7 +82,7 @@ namespace RealEstateApp.Services
 		public static async Task<PropertyDetail> GetPropertyDetail(int propertyId)
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.GetStringAsync(ApiSettings.ApiUrl + "api/Properties/PropertyDetail?id=" + propertyId);
 			return JsonConvert.DeserializeObject<PropertyDetail>(response);
 		}
@@ -90,7 +90,7 @@ namespace RealEstateApp.Services
 		public static async Task<List<BookmarkList>> GetBookmarkList()
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.GetStringAsync(ApiSettings.ApiUrl + "api/bookmarks");
 			return JsonConvert.DeserializeObject<List<BookmarkList>>(response);
 		}
@@ -100,7 +100,7 @@ namespace RealEstateApp.Services
 			var httpClient = new HttpClient();
 			var json = JsonConvert.SerializeObject(addBookmark);
 			var content = new StringContent(json, Encoding.UTF8, "application/json");
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.PostAsync(ApiSettings.ApiUrl + "api/bookmarks", content);
 			if (!response.IsSuccessStatusCode) return false;
 			return true;
@@ -109,7 +109,7 @@ namespace RealEstateApp.Services
 		public static async Task<bool> DeleteBookmark(int bookmarkId)
 		{
 			var httpClient = new HttpClient();
-			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("berarer", Preferences.Get("accesstoken", string.Empty));
+			httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
 			var response = await httpClient.DeleteAsync(ApiSettings.ApiUrl + "api/bookmarks/" + bookmarkId);
 			if (!response.IsSuccessStatusCode) return false;
 			return true;
