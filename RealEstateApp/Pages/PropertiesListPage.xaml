@@ -4,7 +4,8 @@
              x:Class="RealEstateApp.Pages.PropertiesListPage">
     <CollectionView x:Name="CvProperties"
                     Margin="10"
-                    SelectionMode="Single">
+                    SelectionMode="Single"
+                    SelectionChanged="CvProperties_SelectionChanged">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
         </CollectionView.ItemsLayout>

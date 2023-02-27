@@ -38,4 +38,18 @@ public partial class HomePage : ContentPage
 			((CollectionView)sender).SelectedItem = null;
 		}
 	}
+
+	private void CvTopPicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		var currentSelection = e.CurrentSelection.FirstOrDefault() as TrendingProperty;
+		if (currentSelection == null)
+		{
+			return;
+		}
+		else
+		{
+			Navigation.PushModalAsync(new PropertyDetailPage(currentSelection.Id));
+			((CollectionView)sender).SelectedItem = null;
+		}
+	}
 }

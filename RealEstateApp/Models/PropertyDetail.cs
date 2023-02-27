@@ -26,8 +26,9 @@ namespace RealEstateApp.Models
 
 		[JsonProperty("imageUrl")]
 		public string ImageUrl { get; set; }
+		public string FullImageUrl => ApiSettings.ApiUrl + ImageUrl;
 
-		[JsonProperty("phone")]
+        [JsonProperty("phone")]
 		public string Phone { get; set; }
 
 		[JsonProperty("bookmark")]

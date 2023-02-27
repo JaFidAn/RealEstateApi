@@ -1,3 +1,4 @@
+using RealEstateApp.Models;
 using RealEstateApp.Services;
 
 namespace RealEstateApp.Pages;
@@ -15,5 +16,19 @@ public partial class PropertiesListPage : ContentPage
 	{
 		var properties = await ApiService.GetPropertyByCategory(categoryId);
 		CvProperties.ItemsSource = properties;
+	}
+
+	private void CvProperties_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		var currentSelection = e.CurrentSelection.FirstOrDefault() as PropertyByCategory;
+		if (currentSelection == null)
+		{
+			return;
+		}
+		else
+		{
+			Navigation.PushModalAsync(new PropertyDetailPage(currentSelection.Id));
+			((CollectionView)sender).SelectedItem = null;
+		}
 	}
 }

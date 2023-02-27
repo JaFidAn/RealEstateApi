@@ -66,13 +66,15 @@
                 <Label Text="Top Picks"
                    FontSize="Large"/>
                 <CollectionView x:Name="CvTopPicks"
-                            HeightRequest="350">
+                                HeightRequest="350"
+                                SelectionMode="Single"
+                                SelectionChanged="CvTopPicks_SelectionChanged">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame CornerRadius="25"
+                            <Border StrokeShape="RoundRectangle 25,25,25,25"
                                    Padding="15"
                                    BackgroundColor="White">
                                 <Grid RowSpacing="5">
@@ -104,7 +106,7 @@
                                            TextColor="LightSeaGreen"
                                            Text="{Binding Price}"/>
                                 </Grid>
-                            </Frame>
+                            </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
