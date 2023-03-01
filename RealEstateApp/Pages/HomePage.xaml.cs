@@ -52,4 +52,9 @@ public partial class HomePage : ContentPage
 			((CollectionView)sender).SelectedItem = null;
 		}
 	}
+
+	private void TapSearch_Tapped(object sender, TappedEventArgs e)
+	{
+		Navigation.PushModalAsync(new SearchPage());
+    }
 }

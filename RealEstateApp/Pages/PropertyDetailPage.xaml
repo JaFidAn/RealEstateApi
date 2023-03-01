@@ -34,7 +34,6 @@
                          Clicked="ImgBackBtn_Clicked"
                 />
             <ImageButton x:Name="ImgBookmarkBtn"
-                         Source="bookmark_empty_icon"
                          CornerRadius="10"
                          BackgroundColor="White"
                          HeightRequest="40"
@@ -42,6 +41,7 @@
                          Padding="5"
                          HorizontalOptions="EndAndExpand"
                          VerticalOptions="Start"
+                         Clicked="ImgBookmarkBtn_Clicked"
                 />
         </StackLayout>
         <VerticalStackLayout Grid.Row="3"
